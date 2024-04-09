@@ -1,0 +1,16 @@
+<router-outlet />
+<ng-template #userListItemTemplate let-user="item">
+  <app-user-list-item [userI]="user"></app-user-list-item>
+</ng-template>
+
+<ng-template #userDetailTemplate let-user="item">
+  <app-user-detail [userI]="user"></app-user-detail>
+</ng-template>
+
+<app-list-detail
+  [items]="users"
+  [itemListItemTemplate]="userListItemTemplate"
+  [itemDetailTemplate]="userDetailTemplate"
+  [addOneItem]="addOneUser"
+>
+</app-list-detail>

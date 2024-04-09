@@ -1,0 +1,20 @@
+<ng-container *ngIf="!selected">
+  <h1>List</h1>
+  <ng-container *ngFor="let oneItem of items">
+    <div (click)="selected = oneItem">
+      <ng-container
+        *ngTemplateOutlet="itemListItemTemplate; context: { item: oneItem }"
+      >
+      </ng-container>
+    </div>
+  </ng-container>
+  <button (click)="addOne()">Add</button>
+</ng-container>
+<ng-container *ngIf="selected">
+  <h1>Detail</h1>
+  <ng-container
+    *ngTemplateOutlet="itemDetailTemplate; context: { item: selected }"
+  >
+  </ng-container>
+  <button (click)="selected = null">Go back</button>
+</ng-container>
